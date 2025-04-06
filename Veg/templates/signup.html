@@ -1,0 +1,60 @@
+{% extends 'navbar.html' %}
+{% block title %}Recipe Page{% endblock %}
+
+{% block content %}
+
+    <div class="w-full max-w-md mx-auto flex flex-col justify-center items-center ">
+        <form class="bg-gray-50 shadow-2xl rounded px-8 pb-8 w-full" method = 'post'>
+            {%csrf_token%}
+            
+
+            <h1 class="text-3xl font-bold text-center text-slate-600 mb-6">Create Your Account</h1>
+
+            <div class="mb-4 flex items-center space-x-4">
+                <div class="flex flex-col w-1/2">
+                  <label class="text-slate-700 text-sm font-bold mb-1" for="first-name">First Name</label>
+                  <input required  name = 'first_name' class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus:shadow-outline" id="first-name" type="text" placeholder="Shair">
+                </div>
+              
+                <div class="flex flex-col w-1/2">
+                  <label class="text-slate-700 text-sm font-bold mb-1" for="last-name">Last Name</label>
+                  <input required name='last_name' class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus:shadow-outline" id="last-name" type="text" placeholder="Ali">
+                </div>
+              </div>
+              
+
+          <div class="mb-4">
+            <label class="block text-slate-700 text-sm font-bold mb-2" for="Last Name">
+              Email
+            </label>
+            <input required name = 'email' class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="text" placeholder="ShairAli125">
+          </div>
+
+          <div class="mb-6">
+            <label class="block text-slate-700 text-sm font-bold mb-2" for="password1">
+              Password
+            </label>
+            <input required name = 'password1' class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password1" type="password" placeholder="******************">
+            
+          </div>
+
+          <div class="mb-6">
+            <label class="block text-slate-700 text-sm font-bold mb-2" for="password2">
+              Confirm Password
+            </label>
+            <input required name = 'password2' class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password2" type="password" placeholder="******************">
+            
+          </div>
+
+          <div class="flex items-center justify-between">
+            <button class="bg-slate-800 hover:bg-slate-700 active:bg-slate-800 text-white font-bold py-2 px-10 rounded focus:outline-none focus:shadow-outline" type="submit">
+              Sign Up
+            </button>
+            <a class="inline-block align-baseline font-bold text-sm text-slate-800 hover:text-slate-700" href="/login/">
+              Already have a Account?
+            </a>
+          </div>
+        </form>
+      </div>
+
+      {% endblock %}

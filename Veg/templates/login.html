@@ -1,0 +1,44 @@
+{% extends 'navbar.html' %}
+
+{% block title %}Recipe Page{% endblock %}
+
+{% block content %}
+
+
+{% include 'message.html'  %}
+
+    <div class="w-full max-w-md mx-auto flex flex-col justify-center items-center xl:mt-20 sm:mt-10 md:mt-10">
+        <form class="bg-slate-50 shadow-2xl rounded px-8 pt-6 pb-8 w-full" method = 'post'>
+            {%csrf_token%}
+            
+
+            <h1 class="text-3xl font-bold text-center text-slate-800 mb-6">Login to Your Account</h1>
+
+            
+          <div class="mb-8 mt-8">
+            <label class="block text-slate-800 text-sm font-bold mb-2" for="Last Name">
+              Email
+            </label>
+            <input required name = 'email' class="font-2xl shadow appearance-none border rounded w-full py-2 px-3 text-slate-800 leading-tight focus:outline-none focus:shadow-outline" id="email" type="text" placeholder="ShairAli125@gmail.com">
+          </div>
+
+          <div class="mb-8">
+            <label class="block text-slate-800 text-sm font-bold mb-2" for="password">
+              Password
+            </label>
+            <input required name = 'password' class="font-2xl shadow appearance-none border rounded w-full py-2 px-3 text-slate-800 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************">
+          </div>
+
+
+          <div class="flex items-center justify-between">
+            <button class="bg-slate-800 hover:bg-slate-700 active:bg-slate-800 text-white font-bold py-2 px-10  rounded focus:outline-none focus:shadow-outline" type="submit">
+              Sign In
+            </button>
+            <a class="inline-block align-baseline font-bold text-md text-slate-800 hover:text-slate-800" href="/Reset-password/">
+              Forget Password ?
+            </a>
+          </div>
+        </form>
+      </div>
+
+      {% endblock %}
