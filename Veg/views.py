@@ -9,7 +9,18 @@ from django.conf import settings
 from django.utils.crypto import get_random_string
 
 def posted_recipe(request):
-    pass
+    search = request.GET.get('search','')
+
+    if search:
+        recipes = recipe.objects.filter(recipe_name__icontains = request.GET.get('search'))    
+        if recipes.exists():
+            messages.success(request,'Products Found successfully')
+        else:
+            messages.error(request,'Product does not exists')
+    else:
+        recipes = recipe.objects.all()
+    context = {'recipes':recipes,'search':search}
+    return render(request,'Feed.html',context)
 
 
 @login_required(login_url='/login/')
