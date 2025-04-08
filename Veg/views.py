@@ -8,6 +8,10 @@ from django.core.mail import send_mail,EmailMessage
 from django.conf import settings
 from django.utils.crypto import get_random_string
 
+def posted_recipe(request):
+    pass
+
+
 @login_required(login_url='/login/')
 def getting_recipe(request):
 
@@ -17,7 +21,7 @@ def getting_recipe(request):
         recipe_name = data.get('recipe_name')
         recipe_discription = data.get('recipe_discription')
         recipe_image = request.FILES.get('recipe_image')
-        new_recipe = recipe.objects.create(recipe_name = recipe_name, recipe_discription = recipe_discription, recipe_image = recipe_image)
+        new_recipe = recipe.objects.create(user = request.user,recipe_name = recipe_name, recipe_discription = recipe_discription, recipe_image = recipe_image)
         if new_recipe:
             messages.success(request,'Recipe uploaded successfully')
         else:
@@ -28,14 +32,14 @@ def getting_recipe(request):
     search = request.GET.get('search','')
 
     if search:
-        recipes = recipe.objects.filter(recipe_name__icontains = request.GET.get('search'))
-        
+        recipes = recipe.objects.filter(user=request.user).filter(recipe_name__icontains = request.GET.get('search'))    
         if recipes.exists():
             messages.success(request,'Products Found successfully')
         else:
             messages.error(request,'Product does not exists')
     else:
-        recipes = recipe.objects.all()
+        recipes = recipe.objects.filter(user=request.user)
+        # recipes = recipe.objects.all()
     
     
     context = {'recipes':recipes,'search':search}

@@ -9,3 +9,4 @@ class recipe(models.Model):
 
     def __str__(self):
         return self.recipe_name
+
