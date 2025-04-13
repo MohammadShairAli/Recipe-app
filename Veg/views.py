@@ -134,6 +134,8 @@ def login_page(request):
     return render(request,'login.html')
 
 def Reset_password(request):
+    import pdb;pdb.set_trace()
+    
     if request.method == 'POST':
         data = request.POST
         email = data.get('email')

@@ -18,8 +18,9 @@
                             <a href="/" class="rounded-md px-5 py-2 text-md font-medium text-slate-800 hover:bg-slate-800 bg-gray-300 hover:text-white">Feed</a>
                     
                             {%if user.is_authenticated %}
+                                <a href="/recipe/" class="rounded-md px-5 py-2 text-md font-medium text-slate-800 hover:bg-slate-800 bg-gray-300 hover:text-white">My Recipes</a>
                                 <a href="/logout/" class="rounded-md px-5 py-2 text-md font-medium text-slate-800 hover:bg-red-600 bg-gray-300 hover:text-white">LogOut</a>
-                            {%else%}
+                                {%else%}
                             <a href="/login/" class="rounded-md px-5 py-2 text-md font-medium text-slate-800 hover:bg-slate-800 bg-gray-300 hover:text-white">LogIn</a>
                             <a href="/signup/" class="rounded-md px-5 py-2 text-md font-medium text-slate-800 hover:bg-slate-800 bg-gray-300 hover:text-white">SignUp</a>
                             {%endif%}

@@ -2,25 +2,18 @@
 {% block title %}Recipe Page{% endblock %}
 
 {% block content %}
+{% include 'message.html' %}
 
 <script>
     function toggleBackground(element) {
-        // Get all links inside the container
         const links = document.querySelectorAll('.flex a');
-        
-        // Check if the clicked element already has the active class
         const isActive = element.classList.contains('bg-slate-800');
-    
-        // If the clicked element is already active, remove the active class
         if (isActive) {
             element.classList.remove('bg-slate-800', 'text-white');
         } else {
-            // Otherwise, remove active class from all other elements
             links.forEach(link => {
                 link.classList.remove('bg-slate-800', 'text-white');
             });
-    
-            // Add active class to the clicked element
             element.classList.add('bg-slate-800', 'text-white');
         }
     }
@@ -108,10 +101,14 @@
                         <path d="M9 21h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.58 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2zM9 9l4.34-4.34L12 10h9v2l-3 7H9V9zM1 9h4v12H1z"/>
                     </svg>
                 </a>
-
-                <a class="px-2 cursor-pointer rounded-2xl flex items-center justify-center font-medium text-slate-800 dark:text-slate-400 hover:bg-slate-800 hover:text-white py-1 space-x-2" 
-                onclick="toggleBackground(this)"
+                
+                  <a class="px-2 cursor-pointer rounded-2xl flex items-center justify-center font-medium text-slate-800 dark:text-slate-800 hover:bg-slate-800 hover:text-white py-1 space-x-2
+                  " 
+                  onclick="toggleBackground(this)"
+                
                 >
+                
+                
                     <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor" class="w-6 h-6">
                         <g>
                             <rect fill="none" height="24" width="24"/>
